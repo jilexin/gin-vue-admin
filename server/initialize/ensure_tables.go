@@ -2,10 +2,12 @@ package initialize
 
 import (
 	"context"
+
 	adapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/example"
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
 	"github.com/flipped-aurora/gin-vue-admin/server/plugin/announcement/model"
+	emailModel "github.com/flipped-aurora/gin-vue-admin/server/plugin/email/model"
 	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
 	"gorm.io/gorm"
 )
@@ -63,6 +65,8 @@ func (e *ensureTables) MigrateTable(ctx context.Context) (context.Context, error
 		example.ExaAttachmentCategory{},
 
 		model.Info{},
+
+		emailModel.EmailDraft{},
 	}
 	for _, t := range tables {
 		_ = db.AutoMigrate(&t)
@@ -104,6 +108,8 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 		example.ExaAttachmentCategory{},
 
 		model.Info{},
+
+		emailModel.EmailDraft{},
 	}
 	yes := true
 	for _, t := range tables {

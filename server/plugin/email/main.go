@@ -1,7 +1,10 @@
 package email
 
 import (
+	"context"
+
 	"github.com/flipped-aurora/gin-vue-admin/server/plugin/email/global"
+	"github.com/flipped-aurora/gin-vue-admin/server/plugin/email/initialize"
 	"github.com/flipped-aurora/gin-vue-admin/server/plugin/email/router"
 	"github.com/gin-gonic/gin"
 )
@@ -21,7 +24,9 @@ func CreateEmailPlug(To, From, Host, Secret, Nickname string, Port int, IsSSL bo
 }
 
 func (*emailPlugin) Register(group *gin.RouterGroup) {
+	ctx := context.Background()
 	router.RouterGroupApp.InitEmailRouter(group)
+	initialize.Gorm(ctx)
 }
 
 func (*emailPlugin) RouterPath() string {
