@@ -3,6 +3,7 @@ package client
 import (
 	"context"
 	"errors"
+
 	mcpClient "github.com/mark3labs/mcp-go/client"
 	"github.com/mark3labs/mcp-go/mcp"
 )
