@@ -2,18 +2,17 @@ package router
 
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
-	"github.com/flipped-aurora/gin-vue-admin/server/plugin/emailplus/api"
 	"github.com/gin-gonic/gin"
 )
 
-type EmailRouter struct{}
+var Email = new(email)
 
-func (s *EmailRouter) InitEmailRouter(Router *gin.RouterGroup) {
-	emailRouter := Router.Use(middleware.OperationRecord())
-	EmailApi := api.ApiGroupApp.EmailApi.EmailTest
-	SendEmail := api.ApiGroupApp.EmailApi.SendEmail
+type email struct{}
+
+func (r *email) Init(public *gin.RouterGroup, private *gin.RouterGroup) {
 	{
-		emailRouter.POST("emailTest", EmailApi)  // 发送测试邮件
-		emailRouter.POST("sendEmail", SendEmail) // 发送邮件
+		group := private.Group("emailplus").Use(middleware.OperationRecord())
+		group.POST("emailTest", apiEmail.EmailTest) // 发送测试邮件
+		group.POST("sendEmail", apiEmail.SendEmail) // 发送邮件
 	}
 }

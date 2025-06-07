@@ -7,7 +7,7 @@ aliyun-oss:
     base-path: yourBasePath
 autocode:
     web: web/src
-    root: E:\GitHub\gin-vue-admin
+    root: C:\GitHub\gin-vue-admin
     server: server
     module: github.com/flipped-aurora/gin-vue-admin/server
     ai-path: ""
@@ -84,7 +84,7 @@ hua-wei-obs:
     access-key: you-access-key
     secret-key: you-secret-key
 jwt:
-    signing-key: c412e6a5-38c3-4888-a349-96e5c167572f
+    signing-key: e17a1f3e-56dd-4369-abd2-a7c158bdf8e4
     expires-time: 7d
     buffer-time: 1d
     issuer: qmPlus
@@ -166,9 +166,9 @@ pgsql:
     prefix: ""
     port: "5432"
     config: sslmode=disable TimeZone=Asia/Shanghai
-    db-name: gva0606
+    db-name: gva0607
     username: postgres
-    password: EXPERIENCE
+    password: experience
     path: 127.0.0.1
     engine: ""
     log-mode: error

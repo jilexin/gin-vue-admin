@@ -1,7 +1,10 @@
 package api
 
-type ApiGroup struct {
-	EmailApi
-}
+import "github.com/flipped-aurora/gin-vue-admin/server/plugin/emailplus/service"
 
-var ApiGroupApp = new(ApiGroup)
+var (
+	Api          = new(api)
+	serviceEmail = service.Service.Email
+)
+
+type api struct{ Email email }

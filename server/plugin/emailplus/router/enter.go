@@ -1,7 +1,10 @@
 package router
 
-type RouterGroup struct {
-	EmailRouter
-}
+import "github.com/flipped-aurora/gin-vue-admin/server/plugin/emailplus/api"
 
-var RouterGroupApp = new(RouterGroup)
+var (
+	Router   = new(router)
+	apiEmail = api.Api.Email
+)
+
+type router struct{ Email email }

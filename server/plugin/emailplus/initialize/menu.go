@@ -11,7 +11,7 @@ import (
 func Menu(ctx context.Context) {
 	entities := []model.SysBaseMenu{
 		{
-			ParentId:  24, // 插件管理父菜单ID
+			ParentId:  9, // 插件管理父菜单ID
 			Path:      "emailplus",
 			Name:      "emailplus",
 			Hidden:    false,
